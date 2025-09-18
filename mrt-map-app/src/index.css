@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.station-label {
+  font-family: 'Arial', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-anchor: start;
+  dominant-baseline: middle;
+}
+
+.line-segment {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.station-circle {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.station-circle:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+}
+
+.interchange-station {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+}
+
+.map-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  
+  .map-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  }
+}
