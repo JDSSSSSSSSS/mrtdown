@@ -8,6 +8,10 @@ Interactive transit maps for Singapore MRT, NYC Subway, Tokyo Metro, and more. B
 
 ## 🎯 Live Demo
 
+**🌐 Try it now**: [https://johnxie.github.io/mrtdown/](https://johnxie.github.io/mrtdown/)
+
+> The live demo automatically deploys from this repository and includes all three transit systems with real-time interactivity.
+
 ### Singapore MRT Network
 ![Singapore MRT Demo](docs/screenshots/singapore-mrt-demo.png)
 *Interactive Singapore MRT map with real-time station information and multi-language support*
