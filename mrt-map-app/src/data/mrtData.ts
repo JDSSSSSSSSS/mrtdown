@@ -16,6 +16,11 @@ export interface Station {
   };
   isInterchange: boolean;
   structureType?: 'underground' | 'elevated' | 'at_grade' | 'in_building';
+  position?: {
+    x: number;
+    y: number;
+  };
+  style?: string; // Station style for enhanced rendering
 }
 
 export interface MRTLine {

@@ -1,0 +1,101 @@
+// Static data for the Tokyo Metro system
+// Data sourced from community projects and may not be 100% accurate or up-to-date.
+// A future implementation should use the official Tokyo Metro Open Data API.
+
+import { TransitSystem } from './transitSystem';
+
+export const tokyoMetroData: Partial<TransitSystem> = {
+  stations: [
+    // Ginza Line (G)
+    { id: 'G01', name: 'Shibuya', codes: ['G01', 'Z01', 'F16'], lines: ['G', 'Z', 'F'], coordinates: { lat: 35.6580, lng: 139.7016 }, isInterchange: true },
+    { id: 'G02', name: 'Omote-sando', codes: ['G02', 'C04', 'Z02'], lines: ['G', 'C', 'Z'], coordinates: { lat: 35.664, lng: 139.712 }, isInterchange: true },
+    { id: 'G03', name: 'Gaiemmae', codes: ['G03'], lines: ['G'], coordinates: { lat: 35.671, lng: 139.717 }, isInterchange: false },
+    { id: 'G04', name: 'Aoyama-itchome', codes: ['G04', 'Z03', 'E24'], lines: ['G', 'Z', 'E'], coordinates: { lat: 35.673, lng: 139.724 }, isInterchange: true },
+    { id: 'G05', name: 'Akasaka-mitsuke', codes: ['G05', 'M13'], lines: ['G', 'M'], coordinates: { lat: 35.678, lng: 139.736 }, isInterchange: true },
+    { id: 'G06', name: 'Tameike-sanno', codes: ['G06', 'N06'], lines: ['G', 'N'], coordinates: { lat: 35.674, lng: 139.742 }, isInterchange: true },
+    { id: 'G07', name: 'Toranomon', codes: ['G07'], lines: ['G'], coordinates: { lat: 35.671, lng: 139.749 }, isInterchange: false },
+    { id: 'G08', name: 'Shimbashi', codes: ['G08', 'A10'], lines: ['G', 'A'], coordinates: { lat: 35.666, lng: 139.758 }, isInterchange: true },
+    { id: 'G09', name: 'Ginza', codes: ['G09', 'H08', 'M16'], lines: ['G', 'H', 'M'], coordinates: { lat: 35.671, lng: 139.764 }, isInterchange: true },
+    { id: 'G10', name: 'Kyoboshi', codes: ['G10'], lines: ['G'], coordinates: { lat: 35.675, lng: 139.771 }, isInterchange: false },
+    { id: 'G11', name: 'Nihombashi', codes: ['G11', 'T10', 'A13'], lines: ['G', 'T', 'A'], coordinates: { lat: 35.681, lng: 139.776 }, isInterchange: true },
+    { id: 'G12', name: 'Mitsukoshimae', codes: ['G12', 'Z09'], lines: ['G', 'Z'], coordinates: { lat: 35.685, lng: 139.779 }, isInterchange: true },
+    { id: 'G13', name: 'Kanda', codes: ['G13'], lines: ['G'], coordinates: { lat: 35.691, lng: 139.771 }, isInterchange: true },
+    { id: 'G14', name: 'Suehirocho', codes: ['G14'], lines: ['G'], coordinates: { lat: 35.700, lng: 139.771 }, isInterchange: false },
+    { id: 'G15', name: 'Ueno-hirokoji', codes: ['G15', 'H16'], lines: ['G', 'H'], coordinates: { lat: 35.707, lng: 139.775 }, isInterchange: true },
+    { id: 'G16', name: 'Ueno', codes: ['G16', 'H17'], lines: ['G', 'H'], coordinates: { lat: 35.711, lng: 139.777 }, isInterchange: true },
+    { id: 'G17', name: 'Inaricho', codes: ['G17'], lines: ['G'], coordinates: { lat: 35.712, lng: 139.782 }, isInterchange: false },
+    { id: 'G18', name: 'Tawaramachi', codes: ['G18'], lines: ['G'], coordinates: { lat: 35.712, lng: 139.790 }, isInterchange: false },
+    { id: 'G19', name: 'Asakusa', codes: ['G19', 'A18'], lines: ['G', 'A'], coordinates: { lat: 35.712, lng: 139.797 }, isInterchange: true },
+
+    // Marunouchi Line (M) - Major stations
+    { id: 'M01', name: 'Ogikubo', codes: ['M01'], lines: ['M'], coordinates: { lat: 35.703, lng: 139.622 }, isInterchange: false },
+    { id: 'M02', name: 'Minami-asagaya', codes: ['M02'], lines: ['M'], coordinates: { lat: 35.701, lng: 139.634 }, isInterchange: false },
+    { id: 'M03', name: 'Shin-koenji', codes: ['M03'], lines: ['M'], coordinates: { lat: 35.701, lng: 139.645 }, isInterchange: false },
+    { id: 'M04', name: 'Higashi-koenji', codes: ['M04'], lines: ['M'], coordinates: { lat: 35.702, lng: 139.656 }, isInterchange: false },
+    { id: 'M05', name: 'Shin-nakano', codes: ['M05'], lines: ['M'], coordinates: { lat: 35.705, lng: 139.665 }, isInterchange: false },
+    { id: 'M06', name: 'Nakano-sakaue', codes: ['M06'], lines: ['M'], coordinates: { lat: 35.708, lng: 139.677 }, isInterchange: false },
+    { id: 'M07', name: 'Nishi-shinjuku', codes: ['M07'], lines: ['M'], coordinates: { lat: 35.689, lng: 139.686 }, isInterchange: false },
+    { id: 'M08', name: 'Shinjuku', codes: ['M08'], lines: ['M'], coordinates: { lat: 35.690, lng: 139.700 }, isInterchange: true },
+    { id: 'M09', name: 'Shinjuku-sanchome', codes: ['M09', 'F13'], lines: ['M', 'F'], coordinates: { lat: 35.693, lng: 139.706 }, isInterchange: true },
+    { id: 'M10', name: 'Shinjuku-gyoemmae', codes: ['M10'], lines: ['M'], coordinates: { lat: 35.687, lng: 139.712 }, isInterchange: false },
+    { id: 'M11', name: 'Yotsuya-sanchome', codes: ['M11'], lines: ['M'], coordinates: { lat: 35.685, lng: 139.721 }, isInterchange: false },
+    { id: 'M12', name: 'Yotsuya', codes: ['M12', 'N07'], lines: ['M', 'N'], coordinates: { lat: 35.686, lng: 139.730 }, isInterchange: true },
+    { id: 'M13', name: 'Akasaka-mitsuke', codes: ['M13', 'G05'], lines: ['M', 'G'], coordinates: { lat: 35.678, lng: 139.736 }, isInterchange: true },
+    { id: 'M14', name: 'Kokkai-gijidomae', codes: ['M14', 'C07'], lines: ['M', 'C'], coordinates: { lat: 35.674, lng: 139.745 }, isInterchange: true },
+    { id: 'M15', name: 'Kasumigaseki', codes: ['M15', 'H06', 'C08'], lines: ['M', 'H', 'C'], coordinates: { lat: 35.674, lng: 139.752 }, isInterchange: true },
+    { id: 'M16', name: 'Ginza', codes: ['M16', 'G09', 'H08'], lines: ['M', 'G', 'H'], coordinates: { lat: 35.671, lng: 139.764 }, isInterchange: true },
+    { id: 'M17', name: 'Tokyo', codes: ['M17', 'T09'], lines: ['M', 'T'], coordinates: { lat: 35.681, lng: 139.766 }, isInterchange: true },
+    { id: 'M18', name: 'Otemachi', codes: ['M18', 'T13', 'C11', 'H09', 'Z08'], lines: ['M', 'T', 'C', 'H', 'Z'], coordinates: { lat: 35.684, lng: 139.765 }, isInterchange: true },
+
+    // Hibiya Line (H) - Key stations
+    { id: 'H01', name: 'Kita-senju', codes: ['H01'], lines: ['H'], coordinates: { lat: 35.749, lng: 139.805 }, isInterchange: true },
+    { id: 'H02', name: 'Minami-senju', codes: ['H02'], lines: ['H'], coordinates: { lat: 35.738, lng: 139.795 }, isInterchange: false },
+    { id: 'H03', name: 'Iriya', codes: ['H03'], lines: ['H'], coordinates: { lat: 35.732, lng: 139.783 }, isInterchange: false },
+    { id: 'H04', name: 'Ueno', codes: ['H04', 'G16'], lines: ['H', 'G'], coordinates: { lat: 35.711, lng: 139.777 }, isInterchange: true },
+    { id: 'H05', name: 'Naka-okachimachi', codes: ['H05'], lines: ['H'], coordinates: { lat: 35.707, lng: 139.773 }, isInterchange: false },
+    { id: 'H06', name: 'Kasumigaseki', codes: ['H06', 'M15', 'C08'], lines: ['H', 'M', 'C'], coordinates: { lat: 35.674, lng: 139.752 }, isInterchange: true },
+    { id: 'H07', name: 'Hibiya', codes: ['H07', 'C09', 'Y14'], lines: ['H', 'C', 'Y'], coordinates: { lat: 35.675, lng: 139.759 }, isInterchange: true },
+    { id: 'H08', name: 'Ginza', codes: ['H08', 'G09', 'M16'], lines: ['H', 'G', 'M'], coordinates: { lat: 35.671, lng: 139.764 }, isInterchange: true },
+    { id: 'H09', name: 'Otemachi', codes: ['H09', 'M18', 'T13', 'C11', 'Z08'], lines: ['H', 'M', 'T', 'C', 'Z'], coordinates: { lat: 35.684, lng: 139.765 }, isInterchange: true },
+    { id: 'H10', name: 'Akihabara', codes: ['H10'], lines: ['H'], coordinates: { lat: 35.698, lng: 139.773 }, isInterchange: true },
+
+    // Chiyoda Line (C) - Key stations
+    { id: 'C01', name: 'Ayase', codes: ['C01'], lines: ['C'], coordinates: { lat: 35.751, lng: 139.826 }, isInterchange: false },
+    { id: 'C02', name: 'Kita-ayase', codes: ['C02'], lines: ['C'], coordinates: { lat: 35.746, lng: 139.823 }, isInterchange: false },
+    { id: 'C03', name: 'Machiya', codes: ['C03'], lines: ['C'], coordinates: { lat: 35.741, lng: 139.787 }, isInterchange: false },
+    { id: 'C04', name: 'Omote-sando', codes: ['C04', 'G02', 'Z02'], lines: ['C', 'G', 'Z'], coordinates: { lat: 35.664, lng: 139.712 }, isInterchange: true },
+    { id: 'C05', name: 'Nogizaka', codes: ['C05'], lines: ['C'], coordinates: { lat: 35.667, lng: 139.723 }, isInterchange: false },
+    { id: 'C06', name: 'Akasaka', codes: ['C06'], lines: ['C'], coordinates: { lat: 35.673, lng: 139.737 }, isInterchange: false },
+    { id: 'C07', name: 'Kokkai-gijidomae', codes: ['C07', 'M14'], lines: ['C', 'M'], coordinates: { lat: 35.674, lng: 139.745 }, isInterchange: true },
+    { id: 'C08', name: 'Kasumigaseki', codes: ['C08', 'M15', 'H06'], lines: ['C', 'M', 'H'], coordinates: { lat: 35.674, lng: 139.752 }, isInterchange: true },
+    { id: 'C09', name: 'Hibiya', codes: ['C09', 'H07', 'Y14'], lines: ['C', 'H', 'Y'], coordinates: { lat: 35.675, lng: 139.759 }, isInterchange: true },
+    { id: 'C10', name: 'Nijubashimae', codes: ['C10'], lines: ['C'], coordinates: { lat: 35.679, lng: 139.762 }, isInterchange: false },
+    { id: 'C11', name: 'Otemachi', codes: ['C11', 'M18', 'T13', 'H09', 'Z08'], lines: ['C', 'M', 'T', 'H', 'Z'], coordinates: { lat: 35.684, lng: 139.765 }, isInterchange: true },
+  ],
+  lines: [
+    { id: 'G', name: 'Ginza Line', color: '#FF9500', type: 'subway', stations: ['G01', 'G02', 'G03', 'G04', 'G05', 'G06', 'G07', 'G08', 'G09', 'G10', 'G11', 'G12', 'G13', 'G14', 'G15', 'G16', 'G17', 'G18', 'G19'] },
+    { id: 'M', name: 'Marunouchi Line', color: '#E60012', type: 'subway', stations: ['M01', 'M02', 'M03', 'M04', 'M05', 'M06', 'M07', 'M08', 'M09', 'M10', 'M11', 'M12', 'M13', 'M14', 'M15', 'M16', 'M17', 'M18'] },
+    { id: 'H', name: 'Hibiya Line', color: '#A5A5A5', type: 'subway', stations: ['H01', 'H02', 'H03', 'H04', 'H05', 'H06', 'H07', 'H08', 'H09', 'H10'] },
+    { id: 'C', name: 'Chiyoda Line', color: '#00BB85', type: 'subway', stations: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C08', 'C09', 'C10', 'C11'] }
+  ],
+  connections: [
+    { from: 'G01', to: 'G02', line: 'G' },
+    { from: 'G02', to: 'G03', line: 'G' },
+    { from: 'G03', to: 'G04', line: 'G' },
+    { from: 'G04', to: 'G05', line: 'G' },
+    { from: 'G05', to: 'G06', line: 'G' },
+    { from: 'G06', to: 'G07', line: 'G' },
+    { from: 'G07', to: 'G08', line: 'G' },
+    { from: 'G08', to: 'G09', line: 'G' },
+    { from: 'G09', to: 'G10', line: 'G' },
+    { from: 'G10', to: 'G11', line: 'G' },
+    { from: 'G11', to: 'G12', line: 'G' },
+    { from: 'G12', to: 'G13', line: 'G' },
+    { from: 'G13', to: 'G14', line: 'G' },
+    { from: 'G14', to: 'G15', line: 'G' },
+    { from: 'G15', to: 'G16', line: 'G' },
+    { from: 'G16', to: 'G17', line: 'G' },
+    { from: 'G17', to: 'G18', line: 'G' },
+    { from: 'G18', to: 'G19', line: 'G' },
+  ],
+};

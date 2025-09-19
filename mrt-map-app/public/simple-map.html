@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore MRT Network Map - Simple Version</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .map-container {
+            padding: 20px;
+            background: white;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .station-label {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            text-anchor: start;
+            dominant-baseline: middle;
+            fill: #333;
+        }
+        
+        .station-code {
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            text-anchor: start;
+            dominant-baseline: middle;
+            fill: #666;
+        }
+        
+        .line-segment {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .station-circle {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        
+        .station-circle:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .interchange-station {
+            stroke-width: 3;
+            filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .info-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .info-panel.show {
+            display: block;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .station-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .station-codes {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .code-badge {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        
+        .lines-served {
+            margin-top: 15px;
+        }
+        
+        .line-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+        
+        .line-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8fafc;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Singapore MRT Network Map</h1>
+            <p>Accurate schematic representation based on official LTA data</p>
+        </div>
+        
+        <div class="map-container">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #d42e12;"></div>
+                    <span>North-South Line (NSL)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #009645;"></div>
+                    <span>East-West Line (EWL)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #fa9e0d;"></div>
+                    <span>Circle Line (CCL)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #9900aa;"></div>
+                    <span>North East Line (NEL)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #005ec4;"></div>
+                    <span>Downtown Line (DTL)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #9D5B25;"></div>
+                    <span>Thomson–East Coast Line (TEL)</span>
+                </div>
+            </div>
+            
+            <svg width="100%" height="800" viewBox="0 0 1200 800" style="border: 1px solid #e5e7eb; border-radius: 8px;">
+                <!-- Background -->
+                <rect width="100%" height="100%" fill="#fafafa" />
+                
+                <!-- Grid pattern -->
+                <defs>
+                    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f0" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+                
+                <!-- North-South Line (Red) - Vertical backbone -->
+                <line x1="400" y1="100" x2="400" y2="700" stroke="#d42e12" stroke-width="6" class="line-segment" />
+                
+                <!-- East-West Line (Green) - Horizontal -->
+                <line x1="100" y1="400" x2="700" y2="400" stroke="#009645" stroke-width="6" class="line-segment" />
+                <line x1="700" y1="400" x2="1100" y2="400" stroke="#009645" stroke-width="6" class="line-segment" />
+                
+                <!-- Circle Line (Orange) - Partial circle -->
+                <path d="M 400 300 Q 500 200 600 300 Q 650 400 600 500 Q 500 600 400 500 Q 350 400 400 300" 
+                      fill="none" stroke="#fa9e0d" stroke-width="6" class="line-segment" />
+                
+                <!-- North East Line (Purple) - Diagonal -->
+                <line x1="300" y1="600" x2="500" y2="200" stroke="#9900aa" stroke-width="6" class="line-segment" />
+                
+                <!-- Downtown Line (Blue) - Complex route -->
+                <path d="M 200 200 L 350 200 L 450 350 L 600 350 L 800 500" 
+                      fill="none" stroke="#005ec4" stroke-width="6" class="line-segment" />
+                
+                <!-- Thomson-East Coast Line (Brown) - North-South with curves -->
+                <path d="M 350 100 L 350 250 Q 350 300 400 300 L 450 300 Q 500 300 500 350 L 500 600" 
+                      fill="none" stroke="#9D5B25" stroke-width="6" class="line-segment" />
+                
+                <!-- Major Interchange Stations -->
+                
+                <!-- Dhoby Ghaut (NSL-NEL-CCL) -->
+                <circle cx="400" cy="300" r="10" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Dhoby Ghaut', ['NS24', 'NE6', 'CC1'], ['NSL', 'NEL', 'CCL'])" />
+                <text x="415" y="295" class="station-label">Dhoby Ghaut</text>
+                <text x="415" y="308" class="station-code">NS24/NE6/CC1</text>
+                
+                <!-- City Hall (NSL-EWL) -->
+                <circle cx="400" cy="400" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('City Hall', ['NS25', 'EW13'], ['NSL', 'EWL'])" />
+                <text x="415" y="395" class="station-label">City Hall</text>
+                <text x="415" y="408" class="station-code">NS25/EW13</text>
+                
+                <!-- Raffles Place (NSL-EWL) -->
+                <circle cx="400" cy="450" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Raffles Place', ['NS26', 'EW14'], ['NSL', 'EWL'])" />
+                <text x="415" y="445" class="station-label">Raffles Place</text>
+                <text x="415" y="458" class="station-code">NS26/EW14</text>
+                
+                <!-- Jurong East (NSL-EWL) -->
+                <circle cx="400" cy="600" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Jurong East', ['NS1', 'EW24'], ['NSL', 'EWL'])" />
+                <text x="415" y="595" class="station-label">Jurong East</text>
+                <text x="415" y="608" class="station-code">NS1/EW24</text>
+                
+                <!-- Orchard (NSL-TEL) -->
+                <circle cx="400" cy="250" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Orchard', ['NS22', 'TE14'], ['NSL', 'TEL'])" />
+                <text x="415" y="245" class="station-label">Orchard</text>
+                <text x="415" y="258" class="station-code">NS22/TE14</text>
+                
+                <!-- Bugis (EWL-DTL) -->
+                <circle cx="500" cy="400" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Bugis', ['EW12', 'DT14'], ['EWL', 'DTL'])" />
+                <text x="515" y="395" class="station-label">Bugis</text>
+                <text x="515" y="408" class="station-code">EW12/DT14</text>
+                
+                <!-- Tampines (EWL-DTL) -->
+                <circle cx="900" cy="400" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Tampines', ['EW2', 'DT32'], ['EWL', 'DTL'])" />
+                <text x="915" y="395" class="station-label">Tampines</text>
+                <text x="915" y="408" class="station-code">EW2/DT32</text>
+                
+                <!-- Bishan (NSL-CCL) -->
+                <circle cx="400" cy="180" r="8" fill="white" stroke="black" stroke-width="3" 
+                        class="station-circle interchange-station" onclick="showStationInfo('Bishan', ['NS17', 'CC15'], ['NSL', 'CCL'])" />
+                <text x="415" y="175" class="station-label">Bishan</text>
+                <text x="415" y="188" class="station-code">NS17/CC15</text>
+                
+                <!-- Regular Stations (selection) -->
+                
+                <!-- NSL Stations -->
+                <circle cx="400" cy="130" r="5" fill="white" stroke="#d42e12" stroke-width="2" 
+                        class="station-circle" onclick="showStationInfo('Woodlands', ['NS9'], ['NSL'])" />
+                <text x="415" y="133" class="station-label">Woodlands</text>
+                
+                <circle cx="400" cy="200" r="5" fill="white" stroke="#d42e12" stroke-width="2" 
+                        class="station-circle" onclick="showStationInfo('Newton', ['NS21'], ['NSL'])" />
+                <text x="415" y="203" class="station-label">Newton</text>
+                
+                <circle cx="400" cy="500" r="5" fill="white" stroke="#d42e12" stroke-width="2" 
+                        class="station-circle" onclick="showStationInfo('Marina Bay', ['NS27'], ['NSL'])" />
+                <text x="415" y="503" class="station-label">Marina Bay</text>
+                
+                <!-- EWL Stations -->
+                <circle cx="200" cy="400" r="5" fill="white" stroke="#009645" stroke-width="2" 
+                        class="station-circle" onclick="showStationInfo('Clementi', ['EW23'], ['EWL'])" />
+                <text x="215" y="403" class="station-label">Clementi</text>
+                
+                <circle cx="600" cy="400" r="5" fill="white" stroke="#009645" stroke-width="2" 
+                        class="station-circle" onclick="showStationInfo('Paya Lebar', ['EW8'], ['EWL'])" />
+                <text x="615" y="403" class="station-label">Paya Lebar</text>
+                
+                <circle cx="1000" cy="400" r="5" fill="white" stroke="#009645" stroke-width="2" 
+                        class="station-circle" onclick="showStationInfo('Pasir Ris', ['EW1'], ['EWL'])" />
+                <text x="1015" y="403" class="station-label">Pasir Ris</text>
+                
+                <!-- Title and Info -->
+                <text x="50" y="50" font-size="24" font-weight="bold" fill="#333">Singapore MRT Network</text>
+                <text x="50" y="75" font-size="14" fill="#666">Schematic Map • Not to Geographic Scale</text>
+                <text x="50" y="95" font-size="12" fill="#888">Click stations for details • Based on official LTA data</text>
+            </svg>
+        </div>
+        
+        <div class="footer">
+            <p>Built with data from <strong>mrtdown-data</strong> • Accurate Singapore MRT network representation</p>
+            <p>🚇 Interactive • 🌍 Multi-language • 📱 Responsive Design</p>
+        </div>
+    </div>
+    
+    <!-- Info Panel -->
+    <div id="infoPanel" class="info-panel">
+        <button class="close-btn" onclick="hideStationInfo()">×</button>
+        <div class="station-name" id="stationName">Station Name</div>
+        <div class="station-codes" id="stationCodes">
+            <!-- Station codes will be inserted here -->
+        </div>
+        <div class="lines-served">
+            <h4 style="margin: 0 0 10px 0; color: #666;">Lines Served:</h4>
+            <div id="linesServed">
+                <!-- Lines will be inserted here -->
+            </div>
+        </div>
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e5e7eb;">
+            <button onclick="openGoogleMaps()" style="width: 100%; padding: 10px; background: #4285f4; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                📍 View on Google Maps
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const stationData = {
+            'Dhoby Ghaut': { coords: [1.300419, 103.849283], town: 'Museum', chinese: '多美歌', tamil: 'டோபி காட்' },
+            'City Hall': { coords: [1.293239, 103.852219], town: 'Downtown Core', chinese: '政府大厦', tamil: 'சிட்டி ஹால்' },
+            'Raffles Place': { coords: [1.283666, 103.851959], town: 'Downtown Core', chinese: '莱佛士坊', tamil: 'ராஃபிள்ஸ் பிளேஸ்' },
+            'Jurong East': { coords: [1.3352, 103.7438], town: 'Jurong East', chinese: '裕廊东', tamil: 'ஜூரோங் கிழக்கு' },
+            'Orchard': { coords: [1.304138, 103.831550], town: 'Orchard', chinese: '乌节', tamil: 'ஆர்ச்சர்ட்' },
+            'Bugis': { coords: [1.30186, 103.85388], town: 'Rochor', chinese: '武吉士', tamil: 'பூகிஸ்' },
+            'Tampines': { coords: [1.3541, 103.9437], town: 'Tampines', chinese: '淡滨尼', tamil: 'தெம்பினிஸ்' },
+            'Bishan': { coords: [1.351236, 103.848456], town: 'Bishan', chinese: '碧山', tamil: 'பிஷான்' },
+            'Woodlands': { coords: [1.437, 103.786], town: 'Woodlands', chinese: '兀兰', tamil: 'வுட்லாண்ட்ஸ்' },
+            'Newton': { coords: [1.313250, 103.838361], town: 'Newton', chinese: '牛顿', tamil: 'நியூட்டன்' },
+            'Marina Bay': { coords: [1.276094, 103.854675], town: 'Downtown Core', chinese: '滨海湾', tamil: 'மரீனா பே' },
+            'Clementi': { coords: [1.315303, 103.765244], town: 'Clementi', chinese: '金文泰', tamil: 'கிளமென்டி' },
+            'Paya Lebar': { coords: [1.318125, 103.892486], town: 'Paya Lebar', chinese: '巴耶利峇', tamil: 'பாயா லேபார்' },
+            'Pasir Ris': { coords: [1.373, 103.949], town: 'Pasir Ris', chinese: '白沙', tamil: 'பாசிர் ரிஸ்' }
+        };
+        
+        const lineColors = {
+            'NSL': '#d42e12',
+            'EWL': '#009645',
+            'CCL': '#fa9e0d',
+            'NEL': '#9900aa',
+            'DTL': '#005ec4',
+            'TEL': '#9D5B25'
+        };
+        
+        const lineNames = {
+            'NSL': 'North-South Line',
+            'EWL': 'East-West Line',
+            'CCL': 'Circle Line',
+            'NEL': 'North East Line',
+            'DTL': 'Downtown Line',
+            'TEL': 'Thomson–East Coast Line'
+        };
+        
+        let currentStation = '';
+        
+        function showStationInfo(stationName, codes, lines) {
+            currentStation = stationName;
+            const panel = document.getElementById('infoPanel');
+            const nameEl = document.getElementById('stationName');
+            const codesEl = document.getElementById('stationCodes');
+            const linesEl = document.getElementById('linesServed');
+            
+            nameEl.textContent = stationName;
+            
+            // Add translations if available
+            const station = stationData[stationName];
+            if (station) {
+                let translations = '';
+                if (station.chinese) translations += `🇨🇳 ${station.chinese} `;
+                if (station.tamil) translations += `🇮🇳 ${station.tamil}`;
+                if (translations) {
+                    nameEl.innerHTML = `${stationName}<br><small style="color: #666; font-size: 0.8em; font-weight: normal;">${translations}</small>`;
+                }
+            }
+            
+            // Station codes
+            codesEl.innerHTML = codes.map(code => `<span class="code-badge">${code}</span>`).join('');
+            
+            // Lines served
+            linesEl.innerHTML = lines.map(lineId => `
+                <div class="line-item">
+                    <div class="line-color" style="background-color: ${lineColors[lineId]};"></div>
+                    <span><strong>${lineNames[lineId]}</strong></span>
+                </div>
+            `).join('');
+            
+            panel.classList.add('show');
+        }
+        
+        function hideStationInfo() {
+            document.getElementById('infoPanel').classList.remove('show');
+        }
+        
+        function openGoogleMaps() {
+            const station = stationData[currentStation];
+            if (station) {
+                const url = `https://www.google.com/maps?q=${station.coords[0]},${station.coords[1]}`;
+                window.open(url, '_blank');
+            }
+        }
+        
+        // Close panel when clicking outside
+        document.addEventListener('click', function(e) {
+            const panel = document.getElementById('infoPanel');
+            if (!panel.contains(e.target) && !e.target.classList.contains('station-circle')) {
+                hideStationInfo();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+MIT License
+
+Copyright (c) 2024 John Xie
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Data Attribution
+
+This project integrates with and builds upon several data sources:
+
+### Singapore MRT Data
+- **Primary Source**: MRTDown Data (https://github.com/foldaway/mrtdown-data) by @foldaway
+- **License**: Please refer to the original repository for licensing terms
+- **Usage**: Singapore MRT station information, line data, and service status
+- **Attribution**: This project is built with immense gratitude to the MRTDown ecosystem
+
+### New York Subway Data
+- **Primary Source**: Metropolitan Transportation Authority (MTA) Open Data
+- **License**: Public domain / MTA Open Data License
+- **Usage**: Station locations, line information, and system structure
+
+### Tokyo Metro Data
+- **Primary Source**: Tokyo Metro Co., Ltd. and public transit data sources
+- **License**: Used under fair use for educational and informational purposes
+- **Usage**: Station names, line information, and geographic coordinates
+
+### Technology Stack Licenses
+All third-party libraries and frameworks used in this project are subject to their respective licenses:
+- React (MIT License)
+- TypeScript (Apache 2.0 License)
+- Tailwind CSS (MIT License)
+- And others as specified in package.json
+
+## Disclaimer
+
+This project is an independent visualization tool and is not officially affiliated with:
+- Singapore's Land Transport Authority (LTA)
+- New York's Metropolitan Transportation Authority (MTA)
+- Tokyo Metro Co., Ltd.
+- Any other transit authority
+
+All transit system names, logos, and branding remain the property of their respective owners.

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Filters for enhanced visuals -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" font-size="28" font-weight="bold" fill="#1e293b" text-anchor="middle" font-family="system-ui, sans-serif">
+    Singapore MRT Network Map
+  </text>
+  <text x="600" y="75" font-size="14" fill="#64748b" text-anchor="middle" font-family="system-ui, sans-serif">
+    Official Schematic Representation • Based on LTA Data
+  </text>
+  
+  <!-- North-South Line (Red) - Main vertical backbone -->
+  <g id="nsl" stroke="#d42e12" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- Main trunk from Jurong East to Marina South Pier -->
+    <line x1="300" y1="750" x2="300" y2="150"/>
+    
+    <!-- Branch to Woodlands -->
+    <line x1="300" y1="600" x2="280" y2="580"/>
+    <line x1="280" y1="580" x2="280" y2="500"/>
+  </g>
+  
+  <!-- East-West Line (Green) - Main horizontal trunk -->
+  <g id="ewl" stroke="#009645" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- Main trunk from Pasir Ris to Clementi -->
+    <line x1="1000" y1="400" x2="100" y2="400"/>
+    
+    <!-- Connection back to Jurong East -->
+    <line x1="100" y1="400" x2="300" y2="600"/>
+    
+    <!-- Changi Airport Branch -->
+    <line x1="950" y1="400" x2="1100" y2="450"/>
+  </g>
+  
+  <!-- Circle Line (Orange) - Circular route -->
+  <g id="ccl" stroke="#fa9e0d" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- Circular path around central area -->
+    <path d="M 320 280 Q 450 200 580 280 Q 650 400 580 520 Q 450 600 320 520 Q 250 400 320 280"/>
+    
+    <!-- Extensions -->
+    <line x1="320" y1="280" x2="300" y2="260"/>
+    <line x1="580" y1="520" x2="200" y2="120"/>
+  </g>
+  
+  <!-- North East Line (Purple) - Diagonal -->
+  <g id="nel" stroke="#9900aa" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- Main diagonal from HarbourFront to Punggol -->
+    <line x1="200" y1="120" x2="280" y2="200"/>
+    <line x1="280" y1="200" x2="300" y2="220"/>
+    <line x1="300" y1="220" x2="320" y2="240"/>
+    <line x1="320" y1="240" x2="500" y2="420"/>
+    <line x1="500" y1="420" x2="750" y2="670"/>
+  </g>
+  
+  <!-- Downtown Line (Blue) - Complex curved route -->
+  <g id="dtl" stroke="#005ec4" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- Western section -->
+    <path d="M 50 300 Q 150 250 250 300 Q 300 320 320 340"/>
+    
+    <!-- Central section through city -->
+    <line x1="320" y1="340" x2="400" y2="400"/>
+    <line x1="400" y1="400" x2="500" y2="450"/>
+    
+    <!-- Eastern section -->
+    <path d="M 500 450 Q 650 500 800 450 Q 900 400 950 400"/>
+    
+    <!-- Extension to Expo -->
+    <line x1="950" y1="400" x2="1050" y2="450"/>
+  </g>
+  
+  <!-- Thomson-East Coast Line (Brown) - North-south route -->
+  <g id="tel" stroke="#9D5B25" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- Northern section -->
+    <line x1="260" y1="500" x2="260" y2="400"/>
+    <line x1="260" y1="400" x2="280" y2="380"/>
+    
+    <!-- Central connection -->
+    <line x1="280" y1="380" x2="300" y2="360"/>
+    <line x1="300" y1="360" x2="300" y2="280"/>
+    
+    <!-- Southern section -->
+    <line x1="300" y1="280" x2="280" y2="200"/>
+    <line x1="280" y1="200" x2="300" y2="180"/>
+    
+    <!-- Eastern extension -->
+    <line x1="300" y1="180" x2="500" y2="120"/>
+    <line x1="500" y1="120" x2="700" y2="200"/>
+  </g>
+  
+  <!-- Major Interchange Stations -->
+  
+  <!-- Jurong East (NS1/EW24) -->
+  <circle cx="300" cy="600" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="300" cy="600" r="6" fill="#d42e12"/>
+  <text x="320" y="595" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Jurong East</text>
+  <text x="320" y="610" font-size="9" fill="#64748b" font-family="monospace">NS1 • EW24</text>
+  
+  <!-- Dhoby Ghaut (NS24/NE6/CC1) -->
+  <circle cx="300" cy="260" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="300" cy="260" r="6" fill="#d42e12"/>
+  <text x="320" y="255" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Dhoby Ghaut</text>
+  <text x="320" y="270" font-size="9" fill="#64748b" font-family="monospace">NS24 • NE6 • CC1</text>
+  
+  <!-- City Hall (NS25/EW13) -->
+  <circle cx="300" cy="400" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="300" cy="400" r="6" fill="#d42e12"/>
+  <text x="320" y="395" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">City Hall</text>
+  <text x="320" y="410" font-size="9" fill="#64748b" font-family="monospace">NS25 • EW13</text>
+  
+  <!-- Raffles Place (NS26/EW14) -->
+  <circle cx="300" cy="420" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="300" cy="420" r="6" fill="#d42e12"/>
+  <text x="320" y="415" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Raffles Place</text>
+  <text x="320" y="430" font-size="9" fill="#64748b" font-family="monospace">NS26 • EW14</text>
+  
+  <!-- Marina Bay (NS27/CC29/TE20) -->
+  <circle cx="300" cy="180" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="300" cy="180" r="6" fill="#d42e12"/>
+  <text x="320" y="175" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Marina Bay</text>
+  <text x="320" y="190" font-size="9" fill="#64748b" font-family="monospace">NS27 • CC29 • TE20</text>
+  
+  <!-- Outram Park (EW16/NE3/TE17) -->
+  <circle cx="280" cy="200" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="280" cy="200" r="6" fill="#009645"/>
+  <text x="300" y="195" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Outram Park</text>
+  <text x="300" y="210" font-size="9" fill="#64748b" font-family="monospace">EW16 • NE3 • TE17</text>
+  
+  <!-- Bugis (EW12/DT14) -->
+  <circle cx="500" cy="400" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="500" cy="400" r="6" fill="#009645"/>
+  <text x="520" y="395" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Bugis</text>
+  <text x="520" y="410" font-size="9" fill="#64748b" font-family="monospace">EW12 • DT14</text>
+  
+  <!-- Tampines (EW2/DT32) -->
+  <circle cx="950" cy="400" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="950" cy="400" r="6" fill="#009645"/>
+  <text x="970" y="395" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Tampines</text>
+  <text x="970" y="410" font-size="9" fill="#64748b" font-family="monospace">EW2 • DT32</text>
+  
+  <!-- Bishan (NS17/CC15) -->
+  <circle cx="300" cy="500" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="300" cy="500" r="6" fill="#d42e12"/>
+  <text x="320" y="495" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Bishan</text>
+  <text x="320" y="510" font-size="9" fill="#64748b" font-family="monospace">NS17 • CC15</text>
+  
+  <!-- Serangoon (NE12/CC13) -->
+  <circle cx="500" cy="420" r="12" fill="white" stroke="#1e293b" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="500" cy="420" r="6" fill="#9900aa"/>
+  <text x="520" y="415" font-size="12" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Serangoon</text>
+  <text x="520" y="430" font-size="9" fill="#64748b" font-family="monospace">NE12 • CC13</text>
+  
+  <!-- Regular Stations (selection) -->
+  
+  <!-- Pasir Ris (EW1) -->
+  <circle cx="1000" cy="400" r="8" fill="white" stroke="#009645" stroke-width="3"/>
+  <text x="1020" y="395" font-size="11" font-weight="600" fill="#1e293b" font-family="system-ui, sans-serif">Pasir Ris</text>
+  <text x="1020" y="408" font-size="8" fill="#64748b" font-family="monospace">EW1</text>
+  
+  <!-- Clementi (EW23) -->
+  <circle cx="100" cy="400" r="8" fill="white" stroke="#009645" stroke-width="3"/>
+  <text x="120" y="395" font-size="11" font-weight="600" fill="#1e293b" font-family="system-ui, sans-serif">Clementi</text>
+  <text x="120" y="408" font-size="8" fill="#64748b" font-family="monospace">EW23</text>
+  
+  <!-- Woodlands (NS9/TE2) -->
+  <circle cx="280" cy="500" r="10" fill="white" stroke="#1e293b" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="280" cy="500" r="5" fill="#d42e12"/>
+  <text x="300" y="495" font-size="11" font-weight="600" fill="#1e293b" font-family="system-ui, sans-serif">Woodlands</text>
+  <text x="300" y="508" font-size="8" fill="#64748b" font-family="monospace">NS9 • TE2</text>
+  
+  <!-- Punggol (NE17) -->
+  <circle cx="750" cy="670" r="8" fill="white" stroke="#9900aa" stroke-width="3"/>
+  <text x="770" y="665" font-size="11" font-weight="600" fill="#1e293b" font-family="system-ui, sans-serif">Punggol</text>
+  <text x="770" y="678" font-size="8" fill="#64748b" font-family="monospace">NE17</text>
+  
+  <!-- Changi Airport (CG1) -->
+  <circle cx="1100" cy="450" r="8" fill="white" stroke="#009645" stroke-width="3"/>
+  <text x="1120" y="445" font-size="11" font-weight="600" fill="#1e293b" font-family="system-ui, sans-serif">Changi Airport</text>
+  <text x="1120" y="458" font-size="8" fill="#64748b" font-family="monospace">CG1</text>
+  
+  <!-- Legend -->
+  <g transform="translate(50, 650)">
+    <rect x="0" y="0" width="300" height="140" fill="white" fill-opacity="0.98" rx="12" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <text x="15" y="25" font-size="16" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Singapore MRT Lines</text>
+    
+    <!-- NSL -->
+    <rect x="15" y="40" width="24" height="6" fill="#d42e12" rx="3"/>
+    <text x="50" y="48" font-size="12" font-weight="600" fill="#374151" font-family="system-ui, sans-serif">NSL - North-South Line</text>
+    
+    <!-- EWL -->
+    <rect x="15" y="58" width="24" height="6" fill="#009645" rx="3"/>
+    <text x="50" y="66" font-size="12" font-weight="600" fill="#374151" font-family="system-ui, sans-serif">EWL - East-West Line</text>
+    
+    <!-- CCL -->
+    <rect x="15" y="76" width="24" height="6" fill="#fa9e0d" rx="3"/>
+    <text x="50" y="84" font-size="12" font-weight="600" fill="#374151" font-family="system-ui, sans-serif">CCL - Circle Line</text>
+    
+    <!-- NEL -->
+    <rect x="15" y="94" width="24" height="6" fill="#9900aa" rx="3"/>
+    <text x="50" y="102" font-size="12" font-weight="600" fill="#374151" font-family="system-ui, sans-serif">NEL - North East Line</text>
+    
+    <!-- DTL -->
+    <rect x="15" y="112" width="24" height="6" fill="#005ec4" rx="3"/>
+    <text x="50" y="120" font-size="12" font-weight="600" fill="#374151" font-family="system-ui, sans-serif">DTL - Downtown Line</text>
+  </g>
+  
+  <!-- System Info -->
+  <g transform="translate(900, 650)">
+    <rect x="0" y="0" width="280" height="140" fill="white" fill-opacity="0.98" rx="12" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <text x="15" y="25" font-size="16" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">Network Statistics</text>
+    
+    <text x="15" y="45" font-size="12" fill="#374151" font-family="system-ui, sans-serif">
+      <tspan font-weight="bold">160+</tspan> Stations across the network
+    </text>
+    <text x="15" y="62" font-size="12" fill="#374151" font-family="system-ui, sans-serif">
+      <tspan font-weight="bold">240km</tspan> Total network length
+    </text>
+    <text x="15" y="79" font-size="12" fill="#374151" font-family="system-ui, sans-serif">
+      <tspan font-weight="bold">6</tspan> MRT lines in operation
+    </text>
+    <text x="15" y="96" font-size="12" fill="#374151" font-family="system-ui, sans-serif">
+      <tspan font-weight="bold">3M+</tspan> Daily ridership
+    </text>
+    <text x="15" y="113" font-size="12" fill="#374151" font-family="system-ui, sans-serif">
+      <tspan font-weight="bold">2-3 min</tspan> Peak frequency
+    </text>
+    <text x="15" y="130" font-size="10" fill="#64748b" font-family="system-ui, sans-serif">Based on official LTA data</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="770" font-size="12" fill="#64748b" text-anchor="middle" font-family="system-ui, sans-serif">
+    © 2024 Singapore MRT Network Map • Schematic representation for clarity • Not to geographic scale
+  </text>
+</svg>
