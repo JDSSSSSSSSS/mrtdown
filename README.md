@@ -6,7 +6,31 @@
 
 A comprehensive, interactive transit map application supporting multiple cities worldwide, including Singapore MRT, NYC Subway, Tokyo Metro, and more. Built with modern web technologies and designed as a universal transit system visualization platform.
 
-![Universal Transit Map](https://img.shields.io/badge/Status-Active-brightgreen) ![React](https://img.shields.io/badge/React-18.x-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC)
+![Universal Transit Map](https://img.shields.io/badge/Status-Active-brightgreen) ![React](https://img.shields.io/badge/React-18.x-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC) ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+## 🎯 Live Demo
+
+Experience the Universal Transit Map in action:
+
+### Singapore MRT Network
+![Singapore MRT Demo](docs/screenshots/singapore-mrt-demo.png)
+*Interactive Singapore MRT map with real-time station information and multi-language support*
+
+### New York Subway System  
+![NYC Subway Demo](docs/screenshots/nyc-subway-demo.png)
+*Comprehensive NYC Subway network with line filtering and station details*
+
+### Tokyo Metro Network
+![Tokyo Metro Demo](docs/screenshots/tokyo-metro-demo.png)
+*Tokyo Metro system visualization with interchange stations and route planning*
+
+### Key Features Showcase
+- **🌐 Multi-City Support**: Singapore MRT, NYC Subway, Tokyo Metro
+- **🎨 Multiple Visualization Modes**: Mermaid diagrams, Enhanced maps, Official LTA styling
+- **📱 Responsive Design**: Perfect on desktop, tablet, and mobile
+- **🌙 Dark Mode**: Beautiful dark theme with glass morphism effects
+- **🗣️ Multi-Language**: English, Chinese, Malay, Tamil support for Singapore
+- **⚡ Real-Time Ready**: Architecture prepared for live transit data integration
 
 ## 🚀 Features
 
@@ -79,6 +103,31 @@ mrtdown/
 
 4. **Open in browser**
    Navigate to `http://localhost:5173`
+
+### 🌐 Live Deployment
+
+The application is ready for deployment on various platforms:
+
+- **Vercel**: `npm run build && vercel --prod`
+- **Netlify**: `npm run build && netlify deploy --prod --dir=dist`
+- **GitHub Pages**: `npm run build && npm run deploy`
+
+### 📸 Taking Screenshots for Demo
+
+To capture your own screenshots:
+
+1. Start the development server: `npm run dev`
+2. Navigate to `http://localhost:5173`
+3. Select different cities (Singapore, NYC, Tokyo)
+4. Take screenshots showing:
+   - Full map view with station details panel
+   - Different transit systems
+   - Dark mode interface
+   - Mobile responsive design
+5. Save screenshots as:
+   - `docs/screenshots/singapore-mrt-demo.png`
+   - `docs/screenshots/nyc-subway-demo.png` 
+   - `docs/screenshots/tokyo-metro-demo.png`
 
 ### Building for Production
 
