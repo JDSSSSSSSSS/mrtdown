@@ -42,9 +42,13 @@ const StationInfo: React.FC<StationInfoProps> = ({ station }) => {
     'N': '#FCCC0A', 'Q': '#FCCC0A', 'R': '#FCCC0A', 'W': '#FCCC0A',
     'A': '#0039A6', 'C': '#0039A6', 'E': '#0039A6',
     
-    // Tokyo Metro colors
-    'G': '#FF9500', 'M': '#E60012', 'H': '#A5A5A5', 'C': '#00BB85',
-    'T': '#00A7DB', 'Y': '#C1A470', 'N': '#00ADA9', 'Z': '#B6007A', 'F': '#9C5E31'
+    // Tokyo Metro colors (prefixed with TM_ to avoid conflicts)
+    'TM_G': '#FF9500', 'TM_M': '#E60012', 'TM_H': '#A5A5A5', 'TM_C': '#00BB85',
+    'TM_T': '#00A7DB', 'TM_Y': '#C1A470', 'TM_N': '#00ADA9', 'TM_Z': '#B6007A', 'TM_F': '#9C5E31',
+    
+    // Tokyo Metro colors (original IDs for backward compatibility)
+    'G': '#FF9500', 'M': '#E60012', 'H': '#A5A5A5',
+    'T': '#00A7DB', 'Y': '#C1A470', 'Z': '#B6007A', 'F': '#9C5E31'
   };
 
   const isSingapore = isSingaporeStation(station);
